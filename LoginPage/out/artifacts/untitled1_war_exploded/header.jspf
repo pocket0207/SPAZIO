@@ -1,0 +1,10 @@
+<%-- 
+    Document   : header.jsp
+    Author     : jongmin
+--%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+
+<div id="login_header">
+    <h2>SPAZIO 로그인<br /><br /></h2>
+</div>
