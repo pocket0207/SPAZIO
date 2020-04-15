@@ -48,7 +48,8 @@
 <%--        <jsp:include page="sidebar_admin_previous_menu.jsp" />--%>
     </div>
 
-    <div id="main">
+    <div id="main" style="overflow:scroll; width:1000px; height:600px;">
+        <%--스크롤 페이지 추가 : style:overflow--%>
         추가로 등록할 사용자 ID와 암호를 입력해 주시기 바랍니다. <br> <br>
 
         <form name="AddUser" action="UserAdmin_test.do?menu=<%= CommandType.ADD_USER_COMMAND%>" method="POST">
