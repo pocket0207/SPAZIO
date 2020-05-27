@@ -76,6 +76,10 @@ public class JoinHandler extends HttpServlet {
                 StringBuilder Popup = new StringBuilder();
                 Popup.append("<script>alert('비밀번호가 일치하지 않습니다!'); window.history.back();</script>");
                 out.println(Popup.toString());
+            }else if(isMatchedPWDrange == false){
+                StringBuilder Popup = new StringBuilder();
+                Popup.append("<script>alert('비밀번호는 5~30자 영문 대소문자, 숫자만 사용 가능합니다!'); window.history.back();</script>");
+                out.println(Popup.toString());
             }else if(isMatchedNAMErange == false){
                 StringBuilder Popup = new StringBuilder();
                 Popup.append("<script>alert('이름은 2~15자 한글,영문 대소문자만 사용 가능합니다!'); window.history.back();</script>");
@@ -93,7 +97,7 @@ public class JoinHandler extends HttpServlet {
                     psmt = conn.prepareStatement(sql);
 
                     psmt.setString(1, ID);
-                    psmt.setString(2, PASSWORD);
+                    psmt.setString(2, utility.getHash(PASSWORD));
                     psmt.setString(3, NAME);
                     psmt.setString(4, SEX);
                     psmt.setString(5, ADDRESS);

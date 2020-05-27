@@ -87,8 +87,10 @@
                     <td colspan="2">
                         <input type="submit" value="가입신청"/>
                         <input type="reset" value="초기화" name="reset" />
+                        <input type="button" value="뒤로가기" onclick="history.back()"/>
                     </td>
                 </form>
+                
             </table>
 
              

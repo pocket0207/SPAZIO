@@ -3,6 +3,7 @@
     Author     : jongmin's DK_ver
 --%>
 
+<%@page import="javax.swing.JOptionPane"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <!DOCTYPE html>
@@ -13,6 +14,7 @@
         <title>로그인 화면</title>
         <link type="text/css" rel="stylesheet" href="css/login_style.css" />
 
+       
         <script type="text/javascript">
             function checkCapsLock(e) {
 
@@ -45,17 +47,20 @@
 
     </head>
     <body>
+        
         <div id="login_form">
             <form method="POST" action="LoginHandler.do"> <!--307p-->
                 <h1> Login </h1>
-                사용자: <input type="text" name="userid" size="20" placeholder="Username" required> <br />
-                암&nbsp;&nbsp;&nbsp;호: <input type="password" name="passwd" size="20" placeholder="Password" required onKeyPress="return checkCapsLock(event)"> <br /> <br />
+                사용자: <input type="text" name="ID" size="20" placeholder="Username" required> <br />
+                암&nbsp;&nbsp;&nbsp;호: <input type="password" name="PWD" size="20" placeholder="Password" required onKeyPress="return checkCapsLock(event)"> <br /> <br />
                 <!-- 2020.04.05 placeholder : 텍스트박스 안에 글자 넣기 가능 -->
-                <input type="submit" value="로그인" name="B1">&nbsp;&nbsp;&nbsp;
+                <input type="submit" value="로그인" name="B1" >&nbsp;&nbsp;&nbsp;
                 <input type="reset" value="다시 입력" name="B2">
 
-                <a href="join.jsp"><br>Don't have an account? Register<br></a>
-                <h3>2020.04.28 로그인 테스트</h3>
+                <a href="join.jsp"><center><br>Don't have an account? Register<br></center></a><br />
+
+                <a href="find.jsp"><input type="button" value="ID / PWD 찾기" onclick=; /></a>
+
             </form>
         </div>
 

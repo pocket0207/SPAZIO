@@ -8,6 +8,22 @@
         <servlet-name>CheckDuplicate</servlet-name>
         <servlet-class>newpackage.CheckDuplicate</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>LoginHandler</servlet-name>
+        <servlet-class>newpackage.LoginHandler</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>FindIDHandler</servlet-name>
+        <servlet-class>newpackage.FindIDHandler</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>FindPWDHandler</servlet-name>
+        <servlet-class>newpackage.FindPWDHandler</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ChangePWDHandler</servlet-name>
+        <servlet-class>newpackage.ChangePWDHandler</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>JoinHandler</servlet-name>
         <url-pattern>/JoinHandler.do</url-pattern>
@@ -15,6 +31,22 @@
     <servlet-mapping>
         <servlet-name>CheckDuplicate</servlet-name>
         <url-pattern>/CheckDuplicate.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LoginHandler</servlet-name>
+        <url-pattern>/LoginHandler.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>FindIDHandler</servlet-name>
+        <url-pattern>/FindIDHandler.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>FindPWDHandler</servlet-name>
+        <url-pattern>/FindPWDHandler.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ChangePWDHandler</servlet-name>
+        <url-pattern>/ChangePWDHandler.do</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
