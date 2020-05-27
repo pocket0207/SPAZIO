@@ -4,7 +4,6 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@page import="cse.maven_webmail.control.CommandType"%>
 
 <!DOCTYPE html>
 
@@ -47,7 +46,7 @@
     </head>
     <body>
         <div id="login_form">
-            <form method="POST" action="Login.do?menu=<%= CommandType.LOGIN%>"> <!--307p-->
+            <form method="POST" action="LoginHandler.do"> <!--307p-->
                 <h1> Login </h1>
                 사용자: <input type="text" name="userid" size="20" placeholder="Username" required> <br />
                 암&nbsp;&nbsp;&nbsp;호: <input type="password" name="passwd" size="20" placeholder="Password" required onKeyPress="return checkCapsLock(event)"> <br /> <br />
@@ -55,7 +54,7 @@
                 <input type="submit" value="로그인" name="B1">&nbsp;&nbsp;&nbsp;
                 <input type="reset" value="다시 입력" name="B2">
 
-                <a href="new_user.jsp"><br>Don't have an account? Register<br></a>
+                <a href="join.jsp"><br>Don't have an account? Register<br></a>
                 <h3>2020.04.28 로그인 테스트</h3>
             </form>
         </div>
