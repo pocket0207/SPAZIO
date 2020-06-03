@@ -10,6 +10,11 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>ID / PWD 찾기</title>
+        <style type="text/css">
+
+  body { color:#F5ECCE; }
+  
+  </style>
     </head>
     <body>
         <form action="FindIDHandler.do" method="POST">
@@ -18,7 +23,7 @@
             <center>이름 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;: <input type='text' name="NAME" style="width: 12%" /><br /></center><br />
             <center>생년월일&nbsp;&nbsp;&nbsp;&nbsp;: <input type='date' name="BIRTH" style="width: 12%"/><br /></center><br />
             <center>이메일&nbsp;&nbsp; &nbsp; &nbsp;  : <input type='text' name="EMAIL1" style="width: 5%" /> @ <input type='text' name="EMAIL2" style="width: 5%" /><br /></center><br />
-            <center>휴대폰번호 : <input type='text' name="TEL1" style="width: 3%" /> - <input type='text' name="TEL2" style="width: 3%" /> - <input type='text' name="TEL3" style="width: 3%" /><br /></center> <br/>
+            <center>휴대폰번호 : <input type='text' maxlength="3" name="TEL1" style="width: 3%" /> - <input type='text' name="TEL2" maxlength="4" style="width: 3%" /> - <input type='text' name="TEL3" maxlength="4" style="width: 3%" /><br /></center> <br/>
             <center><input type="submit" style="width: 20%" value="ID 찾기" /></center>
         </form>
         <br /><br /><br />

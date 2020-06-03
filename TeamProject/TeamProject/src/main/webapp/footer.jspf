@@ -6,5 +6,5 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <div id="footer">
-    &copy; 2020-05-27 수정 <br />
+    SPAZIO <br />
 </div>

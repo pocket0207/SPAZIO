@@ -49,8 +49,8 @@ public class JoinHandler extends HttpServlet {
             String BIRTH = request.getParameter("BIRTH");
             String EMAIL = request.getParameter("EMAIL")+"@"+request.getParameter("EMAIL2");
             String LOCATIONNUMBER = request.getParameter("LOCATION");
-            String TEL1 = request.getParameter("TEL1");
-            String TEL2 = request.getParameter("TEL2");
+            String TEL = request.getParameter("TEL");
+
 
             // 이름 정규표현식 만족 여부
             String NAMErange = "^[가-힣a-zA-Z]{2,30}$";
@@ -62,10 +62,10 @@ public class JoinHandler extends HttpServlet {
             boolean isMatchedPWDrange = PASSWORD.matches(PWDrange);
 
             // 휴대폰 번호 정규표현식 만족 여부
-            String TEL1range = "^(\\d{3}|\\d{4})$";  // 3~4자리 숫자만 허용
-            String TEL2range = "^(\\d{4})$";  // 4자리 숫자만 허용
-            boolean isMatchedTEL1range = TEL1.matches(TEL1range);
-            boolean isMatchedTEL2range = TEL2.matches(TEL2range);
+            String TELrange = "^[0-9]{8}$";  // 3~4자리 숫자만 허용
+            
+            boolean isMatchedTELrange = TEL.matches(TELrange);
+            
             
 
             if(CheckDuplicate.Check == false) {
@@ -84,7 +84,7 @@ public class JoinHandler extends HttpServlet {
                 StringBuilder Popup = new StringBuilder();
                 Popup.append("<script>alert('이름은 2~15자 한글,영문 대소문자만 사용 가능합니다!'); window.history.back();</script>");
                 out.println(Popup.toString());
-            }else if(isMatchedTEL1range == false || isMatchedTEL2range == false){
+            }else if(isMatchedTELrange == false){
                 StringBuilder Popup = new StringBuilder();
                 Popup.append("<script>alert('잘못된 휴대폰 번호 형식입니다!'); window.history.back();</script>");
                 out.println(Popup.toString());
@@ -92,7 +92,7 @@ public class JoinHandler extends HttpServlet {
             else {
                 try {
                     Class.forName("com.mysql.jdbc.Driver");
-                    conn = DriverManager.getConnection("jdbc:mysql://34.64.138.170:3306/capstone?serverTimezone=Asia/Seoul", "capstone", "capstone");
+                    conn = DriverManager.getConnection("jdbc:mysql://34.64.138.170:3306/capstone?serverTimezone=Asia/Seoul", "capstone", "dlehdgus950831");
                     String sql = "Insert INTO users Values(?,?,?,?,?,?,?,?)";
                     psmt = conn.prepareStatement(sql);
 
@@ -103,7 +103,7 @@ public class JoinHandler extends HttpServlet {
                     psmt.setString(5, ADDRESS);
                     psmt.setString(6, BIRTH);
                     psmt.setString(7, EMAIL);
-                    psmt.setString(8,LOCATIONNUMBER+"-"+TEL1+"-"+TEL2);
+                    psmt.setString(8,LOCATIONNUMBER+TEL);
                     
                     count = psmt.executeUpdate(); // 업데이트가 성공적으로 되면
                     
@@ -120,6 +120,7 @@ public class JoinHandler extends HttpServlet {
 
                 } catch (Exception e) {
                     System.err.println("데이터 베이스 접속 실패");
+                    System.err.println(e.getMessage());
                 }
 
             }
