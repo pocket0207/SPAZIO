@@ -45,7 +45,7 @@ public class LoginHandler extends HttpServlet {
 
             try {
                 Class.forName("com.mysql.cj.jdbc.Driver");
-                conn = DriverManager.getConnection("jdbc:mysql://34.64.138.170:3306/capstone?serverTimezone=Asia/Seoul", "capstone", "capstone");
+                conn = DriverManager.getConnection("jdbc:mysql://34.64.138.170:3306/capstone?serverTimezone=Asia/Seoul", "capstone", "dlehdgus950831");
                 String sql = "SELECT id,password FROM users WHERE id=? and password=?";
                 psmt = conn.prepareStatement(sql);
                 psmt.setString(1, InputID);

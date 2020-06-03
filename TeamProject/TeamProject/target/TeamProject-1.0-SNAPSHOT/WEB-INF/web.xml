@@ -24,6 +24,10 @@
         <servlet-name>ChangePWDHandler</servlet-name>
         <servlet-class>newpackage.ChangePWDHandler</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>authentication</servlet-name>
+        <servlet-class>newpackage.authentication</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>JoinHandler</servlet-name>
         <url-pattern>/JoinHandler.do</url-pattern>
@@ -47,6 +51,10 @@
     <servlet-mapping>
         <servlet-name>ChangePWDHandler</servlet-name>
         <url-pattern>/ChangePWDHandler.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>authentication</servlet-name>
+        <url-pattern>/authentication.do</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

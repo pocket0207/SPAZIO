@@ -1,3 +1,4 @@
+newpackage\authentication.class
 newpackage\FindIDHandler.class
 newpackage\FindPWDHandler.class
 newpackage\LoginHandler.class
