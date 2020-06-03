@@ -5,17 +5,30 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<link rel="stylesheet" type="text/css" href="css/stars.css">
+<link rel="stylesheet" type="text/css" href="css/main.css">
+<link rel="stylesheet" href="css/bootstrap.min.css" >
+<link rel="stylesheet" href="css/all.css" >
+
 
 <!DOCTYPE html>
 
 <html>
     <body>
+            <style>
+        body {
+            background-image: url("image/10.jpg");
+            background-repeat: no-repeat;
+            background-size:cover
+        } 
+
+    </style>
     <head>
 
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>사용자 추가 화면</title>
 
-        <link type="text/css" rel="stylesheet" href="css/login_style.css" />
+        
 
     </head>
     <jsp:include page="header.jsp" />
