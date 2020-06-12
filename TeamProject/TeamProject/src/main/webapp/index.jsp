@@ -5,6 +5,9 @@
 
 <%@page import="javax.swing.JOptionPane"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<link rel="stylesheet" type="text/css" href="css/stars.css">
+<link rel="stylesheet" type="text/css" href="css/main.css">
+<link rel="stylesheet" href="css/bootstrap.min.css" >
 
 <!DOCTYPE html>
 
@@ -13,7 +16,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>로그인 화면</title>
         <link type="text/css" rel="stylesheet" href="css/login_style.css" />
-        <link type="text/css" rel="stylesheet" href="css/table_style.css" />
+
        
         <script type="text/javascript">
             function checkCapsLock(e) {
@@ -48,7 +51,7 @@
     </head>
     <body>
         
-        <div id="login_form"style="width: 30%; margin-left: 35%; margin-right: 35%;">
+        <div id="login_form">
             <form method="POST" action="LoginHandler.do"> <!--307p-->
                 <h1> Login </h1>
                 사용자: <input type="text" name="ID" size="20" placeholder="Username" required> <br />
