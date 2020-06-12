@@ -16,6 +16,30 @@
 
         <link type="text/css" rel="stylesheet" href="css/login_style.css" />
         <link type="text/css" rel="stylesheet" href="css/table_style.css" />
+        <script type="text/javascript">
+            function getConfirmResult() {
+                var result = confirm("위 정보로 회원가입을 하시겠습니까?");
+                return result;
+            }
+            
+            function isSamePW() {
+            if (pw.length < 1 || pw.length > 16) {
+            document.getElementById('pw').value=document.getElementById('pwCheck').value='';
+            document.getElementById('same').innerHTML=''
+            }
+            if(document.getElementById('pw').value!='' && document.getElementById('pwCheck').value!='') {
+            if(document.getElementById('pw').value==document.getElementById('pwCheck').value) {
+            document.getElementById('same').innerHTML='비밀번호가 일치합니다.';
+            document.getElementById('same').style.color='blue';
+            }
+            else {
+            document.getElementById('same').innerHTML='비밀번호가 일치하지 않습니다. 다시 확인해주세요.';
+            document.getElementById('same').style.color='red';
+            }
+            }
+            }
+        </script>
+    
     </head>
     <jsp:include page="header.jsp" />
     <div id="sidebar">
@@ -39,11 +63,11 @@
             <form action="JoinHandler.do" method="POST">
                 <tr>
                     <td>비밀번호 </td>
-                    <td> <input type="password" name="PASSWORD" value="" size="25" placeholder="비밀번호(5자이상)" maxlength="20" id="pw" onchange="isSame()" required/> </td>
+                    <td> <input type="password" name="PASSWORD" value="" size="25" placeholder="비밀번호(5자이상)" maxlength="20" id="pw" onchange="isSamePW()" required/> </td>
                 </tr>
                 <tr>                 
                     <td>비밀번호 확인 </td>
-                    <td> <input type="password" name="PASSWORD2" id="pwCheck" onchange="isSame()" value="" size="25" placeholder="비밀번호 확인" maxlength="15" required/> </td>
+                    <td> <input type="password" name="PASSWORD2" id="pwCheck" onchange="isSamePW()" value="" size="25" placeholder="비밀번호 확인" maxlength="15" required/> </td>
                 <br> <span id="same"></span> </td>
                 </tr>
                 <tr>
@@ -79,9 +103,6 @@
                             <option value="011">011</option>   
                         </select>
                     <input type="tel" name="TEL" value="" size="10" placeholder="하이픈 - 없이 입력하세요!" maxlength="8" required/></td>
-
-
-
                 </tr>
 
                 <tr>

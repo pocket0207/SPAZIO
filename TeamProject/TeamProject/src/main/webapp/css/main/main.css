@@ -134,11 +134,7 @@ thead, tbody tr {
 	margin: 0px auto 0px auto;
 	overflow: auto;
 	scrollbar-width: thin;
-<<<<<<< HEAD
 	background-color: yellow;
-=======
-	background-color: white;
->>>>>>> c2ae62eae1b15facee05abc7e38ae8d81ed0a3f2
 }
 
 .table-wrapper-scroll {
@@ -149,11 +145,7 @@ thead, tbody tr {
 tbody {
     display:block;
     scrollbar-width: thin;
-<<<<<<< HEAD
     background-color: rgb(255,255,255);
-=======
-    background-color: rgb(255,255,1);
->>>>>>> c2ae62eae1b15facee05abc7e38ae8d81ed0a3f2
     overflow:auto;
 }
 
@@ -380,14 +372,10 @@ background-color: var(--b2) !important;
 border: 2px solid rgba(255,255,255, 0) !important;
 }
 
-<<<<<<< HEAD
 .trans-map {
    height 342px !important:
     background-color: rgba(255,255,255, 0) !important;
 }
-=======
-
->>>>>>> c2ae62eae1b15facee05abc7e38ae8d81ed0a3f2
 
 
 .full-width {

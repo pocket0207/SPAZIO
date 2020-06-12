@@ -51,7 +51,11 @@ public class FindPWDHandler extends HttpServlet {
 
             Class.forName("com.mysql.cj.jdbc.Driver");
             conn = DriverManager.getConnection("jdbc:mysql://34.64.138.170:3306/capstone?serverTimezone=Asia/Seoul", "capstone", "dlehdgus950831");
+<<<<<<< HEAD
+            String sql = "SELECT id FROM users WHERE ID=? and birth=? and email=? and tel=?";
+=======
             String sql = "SELECT id FROM users WHERE id=? and birth=? and email=? and tel=?";
+>>>>>>> c2ae62eae1b15facee05abc7e38ae8d81ed0a3f2
             psmt = conn.prepareStatement(sql);
             psmt.setString(1, ID);
             psmt.setString(2, Birth);
