@@ -8,7 +8,7 @@
 <!DOCTYPE html>
 
 <html>
-    <body>
+    <body scroll=auto style="overflow-x:hidden">
     <head>
 
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -16,12 +16,37 @@
 
         <link type="text/css" rel="stylesheet" href="css/login_style.css" />
         <link type="text/css" rel="stylesheet" href="css/table_style.css" />
+        
+        <script type="text/javascript">
+
+            function getConfirmResult() {
+                var result = confirm("위 정보로 회원가입을 하시겠습니까?");
+                return result;
+            }
+
+            function isSame() {
+                if (pw.length < 1 || pw.length > 16) {
+                    document.getElementById('pw').value=document.getElementById('pwCheck').value='';
+                    document.getElementById('same').innerHTML=''
+                }
+                if(document.getElementById('pw').value!='' && document.getElementById('pwCheck').value!='') {
+                    if(document.getElementById('pw').value==document.getElementById('pwCheck').value) {
+                        document.getElementById('same').innerHTML='비밀번호가 일치합니다.';
+                        document.getElementById('same').style.color='blue';
+                    }
+                    else {
+                        document.getElementById('same').innerHTML='비밀번호가 일치하지 않습니다. 다시 확인해주세요.';
+                        document.getElementById('same').style.color='red';
+                    }
+                }
+            }
+        </script>
+        
     </head>
     <jsp:include page="header.jsp" />
     <div id="sidebar">
         <%--        <jsp:include page="sidebar_admin_previous_menu.jsp" />--%>
     </div>
-
     <div id="main" style="width: 50%; margin-left: 25%; margin-right: 25%;">
         <%--스크롤 페이지 추가 : style:overflow--%>
         <div style="text-align:right;">
@@ -79,9 +104,6 @@
                             <option value="011">011</option>   
                         </select>
                     <input type="tel" name="TEL" value="" size="10" placeholder="하이픈 - 없이 입력하세요!" maxlength="8" required/></td>
-
-
-
                 </tr>
 
                 <tr>
