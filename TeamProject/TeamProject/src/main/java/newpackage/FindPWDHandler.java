@@ -44,14 +44,18 @@ public class FindPWDHandler extends HttpServlet {
             /* TODO output your page here. You may use following sample code. */
             
             request.setCharacterEncoding("UTF-8");
-            String ID = request.getParameter("ID");
+            String ID = request.getParameter("NAME");
             String Birth = request.getParameter("BIRTH");
             String Email = request.getParameter("EMAIL1") + "@" + request.getParameter("EMAIL2");
-            String Tel = request.getParameter("TEL1") + "-" + request.getParameter("TEL2") + "-" + request.getParameter("TEL3");
+            String Tel = request.getParameter("TEL1") + request.getParameter("TEL2") + request.getParameter("TEL3");
 
             Class.forName("com.mysql.cj.jdbc.Driver");
             conn = DriverManager.getConnection("jdbc:mysql://34.64.138.170:3306/capstone?serverTimezone=Asia/Seoul", "capstone", "dlehdgus950831");
+<<<<<<< HEAD
             String sql = "SELECT id FROM users WHERE ID=? and birth=? and email=? and tel=?";
+=======
+            String sql = "SELECT id FROM users WHERE id=? and birth=? and email=? and tel=?";
+>>>>>>> c2ae62eae1b15facee05abc7e38ae8d81ed0a3f2
             psmt = conn.prepareStatement(sql);
             psmt.setString(1, ID);
             psmt.setString(2, Birth);
@@ -66,6 +70,10 @@ public class FindPWDHandler extends HttpServlet {
                     StringBuilder Popup = new StringBuilder();
                     Popup.append("<script>alert('입력한 정보와 일치하는 계정이 없습니다!'); window.history.back(); </script>");
                     out.println(Popup.toString());
+                    System.err.println(ID);
+                    System.err.println(Birth);
+                    System.err.println(Email);
+                    System.err.println(Tel);
                     
                 }
             

@@ -45,7 +45,7 @@ public class FindIDHandler extends HttpServlet {
             String Name = request.getParameter("NAME");
             String Birth = request.getParameter("BIRTH");
             String Email = request.getParameter("EMAIL1") + "@" + request.getParameter("EMAIL2");
-            String Tel = request.getParameter("TEL1") + "-" + request.getParameter("TEL2") + "-" + request.getParameter("TEL3");
+            String Tel = request.getParameter("TEL1") + request.getParameter("TEL2") + request.getParameter("TEL3");
 
             Class.forName("com.mysql.cj.jdbc.Driver");
             conn = DriverManager.getConnection("jdbc:mysql://34.64.138.170:3306/capstone?serverTimezone=Asia/Seoul", "capstone", "dlehdgus950831");

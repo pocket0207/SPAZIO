@@ -54,7 +54,7 @@ public class LoginHandler extends HttpServlet {
 
                 if (rs.next()) {                  // 일치하는 ID가 있으면 false를 리턴
                     StringBuilder Popup = new StringBuilder();
-                    Popup.append("<script>location.href='main.jsp';</script>");
+                    Popup.append("<script>location.href='main.html';</script>");
                     out.println(Popup.toString());
                 } else {
                     StringBuilder Popup = new StringBuilder();

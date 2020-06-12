@@ -1,8 +1,0 @@
-newpackage\authentication.class
-newpackage\FindIDHandler.class
-newpackage\FindPWDHandler.class
-newpackage\LoginHandler.class
-newpackage\CheckDuplicate.class
-newpackage\JoinHandler.class
-newpackage\utility.class
-newpackage\ChangePWDHandler.class
