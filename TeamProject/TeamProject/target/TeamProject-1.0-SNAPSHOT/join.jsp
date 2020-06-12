@@ -1,42 +1,28 @@
 <%-- 
     Document   : add_user.jsp
     Author     : jongmin's DK_ver
-    역시 이종민 교수님은 대다나다... 그야말로 빛...
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<link rel="stylesheet" type="text/css" href="css/stars.css">
-<link rel="stylesheet" type="text/css" href="css/main.css">
-<link rel="stylesheet" href="css/bootstrap.min.css" >
-<link rel="stylesheet" href="css/all.css" >
-
 
 <!DOCTYPE html>
 
 <html>
     <body>
-            <style>
-        body {
-            background-image: url("image/10.jpg");
-            background-repeat: no-repeat;
-            background-size:cover
-        } 
-
-    </style>
     <head>
 
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>사용자 추가 화면</title>
 
-        
-
+        <link type="text/css" rel="stylesheet" href="css/login_style.css" />
+        <link type="text/css" rel="stylesheet" href="css/table_style.css" />
     </head>
     <jsp:include page="header.jsp" />
     <div id="sidebar">
         <%--        <jsp:include page="sidebar_admin_previous_menu.jsp" />--%>
     </div>
 
-    <div id="main" style="overflow:scroll; width:1000px; height:600px;">
+    <div id="main" style="width: 50%; margin-left: 25%; margin-right: 25%;">
         <%--스크롤 페이지 추가 : style:overflow--%>
         <div style="text-align:right;">
             추가로 등록할 사용자 ID와 암호를 입력해 주시기 바랍니다. &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <br> <br>

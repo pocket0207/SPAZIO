@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/shodan.css">
+
+  <title>Shodan Search Tool</title>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">Shodan 검색 도구</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <div class="navbar-nav">
+        <a class="nav-item nav-link" href="main.html">소개</a>
+        <a class="nav-item nav-link" href="shodan.html">기본 도메인 정보</a>
+        <a class="nav-item nav-link" href="shodanService.html">서비스 정보</a>
+        <a class="nav-item nav-link" href="shodanVulns.html">취약점 정보</a>
+        <a class="nav-item nav-link" href="Pulsar">Pulsar</a>
+      </div>
+    </div>
+  </nav>
+
+  <main role="main" class="container-fluid">
+
+    <h1 class="display-4">도메인 서비스 정보</h1>
+    <h5 class="subHeader">도메인에서 서비스별로 호스트를 식별합니다.</h5>
+    <br />
+
+    <br />
+
+    <div class="row">
+      <div class="col">
+        <input type="text" class="form-control" placeholder="Domain" id="domain">
+      </div>
+
+      <div class="col">
+        <button id="getButton" class="btn btn-info">도메인 정보 검색</button>
+      </div>
+
+      <div class="col">
+        <button id="clearButton" class="btn btn-info">Clear Form</button>
+      </div>
+    </div>
+
+    <hr />
+
+    <div class="text-muted" id="resultsNum"></div>
+
+    <table class="table table-hover" id="output">
+      <thead class="thead-dark">
+        <th>IP</th>
+        <th>호스트 이름</th>
+      </thead>
+      </tbody>
+    </table>
+
+    <br />
+    <div class="error" id="serviceError"></div>
+    <br />
+
+    <hr />
+
+    <h4>Search Using the Following:</h4>
+    <br />
+
+    <div class="row">
+      <div class="col">
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="solveFor" id="keywordCheck" value="keywordCheck" checked>
+          <label class="form-check-label" for="keywordCheck">
+            <p><strong>키워드 :</strong> 헤더에 키워드가 포함 된 도메인의 호스트를 검색합니다.</p>
+          </label>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <input type="text" class="form-control" placeholder="Enter keyword" id="keyword">
+      </div>
+    </div>
+    <hr />
+
+    <div class="row">
+      <div class="col">
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="solveFor" id="vulnCheck" value="vulnCheck">
+          <label class="form-check-label" for="vulnCheck">
+            <p><strong>취약점 :</strong> 도메인에서 특정 CVE 취약점에 취약한 호스트를 검색합니다.</p>
+          </label>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <input type="text" class="form-control" placeholder="Enter CVE number, i.e. CVE-2014-0160" id="CVE">
+      </div>
+    </div>
+    <hr />
+
+    <div class="row">
+      <div class="col">
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="solveFor" id="portCheck" value="portCheck">
+          <label class="form-check-label" for="portCheck">
+            <p><strong>프로토콜 / 포트번호 :</strong> 선택한 포트가 열려 있고 수신중인 도메인의 호스트를 반환합니다.</p>
+          </label>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <input type="text" class="form-control" placeholder="Enter port number" id="portNum">
+      </div>
+    </div>
+    <hr />
+
+    <div class="row">
+      <div class="col">
+        <p><strong>HTTP Status:</strong> 특정 HTTP 응답 상태 코드가 있는 호스트를 반환합니다.</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="solveFor" id="200" value="200">
+          <label class="form-check-label" for="200">
+            200: OK -- page successfully loaded
+          </label>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="solveFor" id="302" value="302">
+          <label class="form-check-label" for="302">
+            302: Found -- identifies hidden pages that are not currently in use because the requested page has moved temporarily to a new URL
+          </label>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="solveFor" id="401" value="401">
+          <label class="form-check-label" for="401">
+            401: Authorization -- identifies pages that require a username and password
+          </label>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="solveFor" id="403" value="403">
+          <label class="form-check-label" for="403">
+            403: Forbidden -- identifies servers that refuse connection
+          </label>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="solveFor" id="404" value="404">
+          <label class="form-check-label" for="404">
+            404: Not Found -- Used when the requested resource is not found, either it doesn't exist or, for security reasons, the service is masked
+          </label>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="solveFor" id="503" value="503">
+          <label class="form-check-label" for="503">
+            503: Service Unavailable -- The server is currently unable to handle the request due to a temporary overloading or maintenance of the server.
+          </label>
+        </div>
+      </div>
+    </div>
+    <hr />
+
+    <div class="row">
+      <div class="col">
+        <p><strong>Software:</strong> 선택한 운영 체제를 실행하는 호스트를 검색합니다.</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="solveFor" id="msiis" value="msiis">
+          <label class="form-check-label" for="msiis">
+            Microsoft IIS
+          </label>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="solveFor" id="linux" value="linux">
+          <label class="form-check-label" for="linux">
+            Linux
+          </label>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="solveFor" id="apache" value="apache">
+          <label class="form-check-label" for="apache">
+            Apache
+          </label>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="solveFor" id="nginx" value="nginx">
+          <label class="form-check-label" for="nginx">
+            NGIX
+          </label>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="solveFor" id="vnc" value="vnc">
+          <label class="form-check-label" for="vnc">
+            VNC
+          </label>
+        </div>
+      </div>
+    </div>
+    <hr />
+
+    <br />
+
+  </main>
+
+
+
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  <script src="scripts/serviceLookup.js"></script>
+</body>
+
+</html>
