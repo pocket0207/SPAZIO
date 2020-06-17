@@ -3,6 +3,7 @@
     Author     : jongmin's DK_ver
 --%>
 
+<%@page import="newpackage.PhoneAuthentication"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <!DOCTYPE html>
@@ -22,6 +23,13 @@
             function getConfirmResult() {
                 var result = confirm("위 정보로 회원가입을 하시겠습니까?");
                 return result;
+            }
+            
+            function test(){
+                
+                var test2 = document.getElementById('TEL').value;
+   
+                return test2;
             }
 
             function isSame() {
@@ -103,12 +111,12 @@
                             <option value="010">010</option>
                             <option value="011">011</option>   
                         </select>
-                    <input type="tel" name="TEL" value="" size="10" placeholder="하이픈 - 없이 입력하세요!" maxlength="8" required/></td>
+                    <input type="tel" name="TEL" id="TEL" value="" size="10" placeholder="하이픈 - 없이 입력하세요!" maxlength="8" required/><td><input type="button" value="인증요청" size="25" onclick="location.href='authentication.jsp?phone='+test()+''" required/> </td></td>
                 </tr>
 
                 <tr>
                     <td>휴대폰 인증 </td>
-                    <td> <input type="text" name="input" value="" size="25" required/><td><input type="button" value="인증요청" size="25" onclick="" required/> </td>
+                    <td> <input type="text" name="inputnumber" value="" size="25" required/> </td>
                 </tr>
 
                 <tr>

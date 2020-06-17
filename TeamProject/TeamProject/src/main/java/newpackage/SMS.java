@@ -11,6 +11,7 @@ import org.junit.Test;
 
 public class SMS {
 
+    public static String authkey = new TempKey().getKey(5);
     @Test
     public void Message(String UserPhoneNumber) throws Exception {
 
@@ -19,7 +20,7 @@ public class SMS {
 
         Message message = new Message(api_key, api_secret);
 
-        String authkey = new TempKey().getKey(5);
+        
 
         JSONObject result;
         HashMap<String, String> params = new HashMap<String, String>();

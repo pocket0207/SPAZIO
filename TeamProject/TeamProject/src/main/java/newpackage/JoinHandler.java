@@ -50,8 +50,8 @@ public class JoinHandler extends HttpServlet {
             String EMAIL = request.getParameter("EMAIL")+"@"+request.getParameter("EMAIL2");
             String LOCATIONNUMBER = request.getParameter("LOCATION");
             String TEL = request.getParameter("TEL");
-
-
+            String AUTHNUMBER = request.getParameter("inputnumber");
+            
             // 이름 정규표현식 만족 여부
             String NAMErange = "^[가-힣a-zA-Z]{2,30}$";
             boolean isMatchedNAMErange = NAME.matches(NAMErange);
@@ -87,6 +87,10 @@ public class JoinHandler extends HttpServlet {
             }else if(isMatchedTELrange == false){
                 StringBuilder Popup = new StringBuilder();
                 Popup.append("<script>alert('잘못된 휴대폰 번호 형식입니다!'); window.history.back();</script>");
+                out.println(Popup.toString());
+            }else if(!AUTHNUMBER.equals(SMS.authkey)){
+                StringBuilder Popup = new StringBuilder();
+                Popup.append("<script>alert('인증번호가 틀렸습니다!'); window.history.back();</script>");
                 out.println(Popup.toString());
             }
             else {
