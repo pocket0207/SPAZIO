@@ -91,8 +91,8 @@ public class JoinHandler extends HttpServlet {
             }
             else {
                 try {
-                    Class.forName("com.mysql.jdbc.Driver");
-                    conn = DriverManager.getConnection("jdbc:mysql://34.64.138.170:3306/capstone?serverTimezone=Asia/Seoul", "capstone", "dlehdgus950831");
+                    Class.forName(DBInfo.JDBC);
+                    conn = DriverManager.getConnection(DBInfo.URL, DBInfo.ID, DBInfo.PWD);
                     String sql = "Insert INTO users Values(?,?,?,?,?,?,?,?)";
                     psmt = conn.prepareStatement(sql);
 

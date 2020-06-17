@@ -56,8 +56,8 @@ public class ChangePWDHandler extends HttpServlet {
                 out.println(Popup.toString());
             } else {
 
-                Class.forName("com.mysql.jdbc.Driver");
-                conn = DriverManager.getConnection("jdbc:mysql://34.64.138.170:3306/capstone?serverTimezone=Asia/Seoul", "capstone", "dlehdgus950831");
+                Class.forName(DBInfo.JDBC);
+                conn = DriverManager.getConnection(DBInfo.URL, DBInfo.ID, DBInfo.PWD);
                 String sql = "UPDATE users SET password=? WHERE id=?";
                 psmt = conn.prepareStatement(sql);
 

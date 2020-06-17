@@ -3,8 +3,14 @@
     Author     : jongmin's DK_ver
 --%>
 
-<%@page import="javax.swing.JOptionPane"%>
+<%@page import="newpackage.DBInfo"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+
+<%
+    String path = this.getServletContext().getRealPath(".");
+    path += "\\WEB-INF\\classes\\conf\\db.properties";
+    DBInfo.setting(path);
+%>
 
 <!DOCTYPE html>
 
@@ -14,7 +20,7 @@
         <title>로그인 화면</title>
         <link type="text/css" rel="stylesheet" href="css/login_style.css" />
         <link type="text/css" rel="stylesheet" href="css/table_style.css" />
-       
+
         <script type="text/javascript">
             function checkCapsLock(e) {
 
@@ -47,7 +53,7 @@
 
     </head>
     <body>
-        
+
         <div id="login_form"style="width: 30%; margin-left: 35%; margin-right: 35%;">
             <form method="POST" action="LoginHandler.do"> <!--307p-->
                 <h1> Login </h1>
