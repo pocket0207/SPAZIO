@@ -12,12 +12,26 @@
     DBInfo.setting(path);
 %>
 
+
+
 <!DOCTYPE html>
 
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>로그인 화면</title>
+
+        <style>
+            body {
+                background-image: url("images/backg.jpg");
+                background-size: cover;
+                color: snow;
+            } 
+
+        </style>
+        
+        
+        
         <link type="text/css" rel="stylesheet" href="css/login_style.css" />
         <link type="text/css" rel="stylesheet" href="css/table_style.css" />
 
@@ -56,20 +70,23 @@
 
         <div id="login_form"style="width: 30%; margin-left: 35%; margin-right: 35%;">
             <form method="POST" action="LoginHandler.do"> <!--307p-->
-                <h1> Login </h1>
+                <h1> Login </h1><br />
                 사용자: <input type="text" name="ID" size="20" placeholder="Username" required> <br />
                 암&nbsp;&nbsp;&nbsp;호: <input type="password" name="PWD" size="20" placeholder="Password" required onKeyPress="return checkCapsLock(event)"> <br /> <br />
                 <!-- 2020.04.05 placeholder : 텍스트박스 안에 글자 넣기 가능 -->
                 <input type="submit" value="로그인" name="B1" >&nbsp;&nbsp;&nbsp;
                 <input type="reset" value="다시 입력" name="B2">
 
-                <a href="join.jsp"><center><br>Don't have an account? Register<br></center></a><br />
+                <a href="join.jsp" style=" color: salmon"><center><br>Don't have an account? Register<br></center></a><br />
 
-                <a href="find.jsp"><input type="button" value="ID / PWD 찾기" onclick=; /></a>
+                <a href="find.jsp" style=" color: turquoise"><input type="button" value="ID / PWD 찾기" onclick=; /></a>
 
             </form>
         </div>
-
+        <br />
+        <br />
+        <br />
+    
         <%@include file="footer.jspf"%>
         <%-- <jsp:include page="footer.jspf" /> --%>
     </body>

@@ -14,6 +14,15 @@
 
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>사용자 추가 화면</title>
+        
+        <style>
+            body {
+                background-image: url("images/backg.jpg");
+                background-size: cover;
+                color: snow;
+            } 
+
+        </style>
 
         <link type="text/css" rel="stylesheet" href="css/login_style.css" />
         <link type="text/css" rel="stylesheet" href="css/table_style.css" />
@@ -107,7 +116,7 @@
                 <tr>
                     <td>휴대폰 번호 </td>
                     <td valgn="top">
-                        <select name="LOCATION" size="">
+                        <select name="LOCATION" size="" style=" color: #000">
                             <option value="010">010</option>
                             <option value="011">011</option>   
                         </select>

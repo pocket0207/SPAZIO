@@ -118,8 +118,8 @@ a:hover {
     font-size: smaller;
     text-align: center;
     border: solid 1px;
-    border-color: graytext;
-    color: gray;
+    border-color: yellow;
+    color: yellow;
     margin: 20px 10px 0px 10px;
     padding: 10px;
     clear: left;
